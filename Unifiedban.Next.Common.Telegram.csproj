@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>netstandard2.1;net6.0</TargetFrameworks>
+        <Authors>Fabricators</Authors>
+        <Product>Unifiedban Common Telegram</Product>
+        <Copyright>Fabricators 2022</Copyright>
+        <BuildNumber Condition=" '$(BuildNumber)' == '' ">0</BuildNumber>
+        <VersionSuffix Condition="'$(Configuration)'=='Debug'">-dev</VersionSuffix>
+        <FileVersion>4.0.0.0</FileVersion>
+        <Version>4.0.0$(VersionSuffix)</Version>
+        <AssemblyVersion>4.0.0</AssemblyVersion>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <DebugType>embedded</DebugType>
+        <DebugSymbols>true</DebugSymbols>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+        <PackageReference Include="Telegram.Bot" Version="17.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\unifiedban-common\Unifiedban.Next.Common.csproj" />
+    </ItemGroup>
+
+</Project>
